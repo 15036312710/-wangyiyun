@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ul{ padding:0px; margin:0px; list-style:none;}
+.box{ width:720px; height:380px; position:relative; border:1px solid #999}
+.box ul.btn{
+	position: absolute;
+	z-index: 999;
+	left: 526px;
+	top: 333px;
+}
+.box ul.btn li{ width:30px; height:30px; border-radius:50%; background:#FFF; margin:0 5px; float:left; cursor:pointer }
+.box ul.pic li{ position:absolute; left:0px; right:0px; top:0px; bottom:0px; opacity:0;}
+</style></head>
+<body>
+<div class="box">
+<ul class="btn" id="aa" >
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<ul class="pic" id="bb" >
+<li><img src="images/1.jpg" width="720" height="380"></li>
+<li><img src="images/2.jpg" width="720" height="380"></li>
+<li><img src="images/3.jpg" width="720" height="380"></li>
+<li><img src="images/4.jpg" width="720" height="380"></li>
+</ul>
+</div>
+<script language="javascript">
+var a= document.getElementById('aa').getElementsByTagName('li');
+var b= document.getElementById('bb').getElementsByTagName('li');
+a[0].style.background='red';
+b[0].style.opacity='1';
+for(var i=0; i<a.length; i++){
+	a[i].index=i;
+   a[i].onclick= function () {
+                for(var i=0; i<a.length; i++){
+                    a[i].style.background='#fff';	
+					b[i].style.opacity='0';
+					b[i].style.transition='opacity 1s';
+                }
+				a[this.index].style.background='red';
+			    b[this.index].style.opacity='1';
+               	b[this.index].style.transition='opacity 1s';
+            };
+}
+</script>
+
+</body>
+</html>

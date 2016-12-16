@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ul{ padding:0px; margin:0px; list-style:none;}
+.box .btn a{  height:30px; line-height:30px; color:#000; cursor:pointer;  padding:0 20px;}
+.box ul.nr li{ width:400px; height:200px; border:1px solid #666; display:none; margin-top:10px; padding:10px;}
+</style></head>
+<body>
+<div class="box">
+
+
+<div class="btn" id="aa" >
+<a>图书</a><span>|</span><a>小说</a><span>|</span><a>订阅</a>
+</div>
+
+
+<ul class="nr" id="bb" >
+<li>我是图书内容</li>
+<li>我是小说内容</li>
+<li>我是订阅内容</li>
+</ul>
+</div>
+<script language="javascript">
+var a= document.getElementById('aa').getElementsByTagName('a');
+var b= document.getElementById('bb').getElementsByTagName('li');
+a[0].style.color='red';
+b[0].style.display='block';
+for(var i=0; i<a.length; i++){
+	a[i].index=i;
+   a[i].onclick= function () {
+                for(var i=0; i<a.length; i++){
+                    a[i].style.color='#000';	
+	                b[i].style.display='none';
+                }
+				a[this.index].style.color='red';
+			    b[this.index].style.display='block';
+            };
+}
+</script>
+
+</body>
+</html>
